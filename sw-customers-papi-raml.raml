@@ -1,2 +1,21 @@
 #%RAML 1.0
-title: sw-customers-papi-raml
+title: swiggy-customers-papi
+baseUri: http://localhost:9094
+mediaType: 
+- application/json
+
+types:
+  Customer: !include datatypes/Customer.raml 
+
+resourceTypes:
+  collection: !include resourceTypes/collection.raml
+  member: !include resourceTypes/member.raml
+
+/customers:
+  type: collection    
+  get:
+
+  /{id}:
+    type: member      
+    get:      
+   
