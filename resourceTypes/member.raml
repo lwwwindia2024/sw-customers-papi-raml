@@ -1,0 +1,26 @@
+#%RAML 1.0 ResourceType
+get?:
+  description: Retrieve a/an <<resourcePathName | !singularize>> with a specific        <<resourcePathName | !singularize >>
+  displayName: Get a/an <<resourcePathName | !singularize>> by <<resourcePathName | !singularize>> ID
+  responses: 
+    200:
+      body:
+        application/json: 
+          type: <<resourcePathName | !singularize | !uppercamelcase>>
+    404:
+      body:
+        application/json:
+          type: !include ../datatypes/ErrorMessage.raml
+    500:   
+        body:
+          application/json: 
+            type: !include  ../datatypes/ErrorMessage.raml 
+            example:
+              {
+              
+              "status": "500",
+              
+              "message": "There was some server side problem. Please try later" 
+              
+              }
+           
