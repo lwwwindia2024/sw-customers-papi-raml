@@ -6,6 +6,7 @@ mediaType:
 
 types:
   Customer: !include datatypes/Customer.raml 
+  Order: !include datatypes/OrderDetails.raml
 
 resourceTypes:
   collection: !include resourceTypes/collection.raml
@@ -18,4 +19,10 @@ resourceTypes:
   /{id}:
     type: member      
     get:      
-   
+    /orders:
+      type: collection        
+      get:   
+          
+      /{orderId}:
+        type: member    
+        get:
